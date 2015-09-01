@@ -28,8 +28,7 @@ public class MovementControllerTests
 	public void MoveLeftTest()
 	{
 		// Arrange
-		var startingPosition = new Vector3(0.0f, 0.0f, 0.0f);
-		var movementController = GetMockMovementController(startingPosition);
+		var movementController = GetMockMovementController();
 		
 		// Act
 		var newPosition = movementController.MoveHorizontaly(-1.0f);
@@ -43,8 +42,7 @@ public class MovementControllerTests
 	public void MoveRightTest()
 	{
 		// Arrange
-		var startingPosition = new Vector3(0.0f, 0.0f, 0.0f);
-		var movementController = GetMockMovementController(startingPosition);
+		var movementController = GetMockMovementController();
 		
 		// Act
 		var newPosition = movementController.MoveHorizontaly(1.0f);
@@ -54,7 +52,7 @@ public class MovementControllerTests
 		Assert.AreEqual(expectedPosition, newPosition);
 	}
 
-	internal IMovementController GetMockMovementController(Vector3 startingPosition)
+	internal IMovementController GetMockMovementController()
 	{
 
 		Transform transform = CreateTempGameObject().transform;
