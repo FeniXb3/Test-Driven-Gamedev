@@ -36,7 +36,7 @@ public class MovementControllerTests
 		
 		// Assert
 		var expectedPosition = new Vector3(-1.0f, 0.0f, 0.0f);
-		Assert.AreEqual(newPosition, expectedPosition);
+		Assert.AreEqual(expectedPosition, newPosition);
 	}
 
 	[Test]
@@ -51,7 +51,7 @@ public class MovementControllerTests
 		
 		// Assert
 		var expectedPosition = new Vector3(1.0f, 0.0f, 0.0f);
-		Assert.AreEqual(newPosition, expectedPosition);
+		Assert.AreEqual(expectedPosition, newPosition);
 	}
 
 	internal IMovementController GetMockMovementController(Vector3 startingPosition)
