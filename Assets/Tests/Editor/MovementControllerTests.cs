@@ -59,7 +59,6 @@ public class MovementControllerTests
 
 		Transform transform = CreateTempGameObject().transform;
 		var movementController = Substitute.For<MovementController>(transform);
-		movementController.StartingPosition = startingPosition;
 
 		return movementController;
 	}
