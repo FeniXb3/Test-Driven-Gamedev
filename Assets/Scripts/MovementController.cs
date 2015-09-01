@@ -11,8 +11,8 @@
 
 	public float MoveHorizontaly(float value)
 	{
-		transform.Translate(value, 0.0f, 0.0f);
+		transform.Translate(0.0f, value, 0.0f);
 
-		return transform.position.x;
+		return transform.position.y;
 	}
 }
