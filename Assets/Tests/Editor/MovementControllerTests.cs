@@ -28,14 +28,15 @@ public class MovementControllerTests
 	public void MoveLeftTest()
 	{
 		// Arrange
-		var startingPositionY = 0.0f;
-		var movementController = GetMockMovementController(new Vector3(0.0f, startingPositionY, 0.0f));
+		var startingPosition = new Vector3(0.0f, 0.0f, 0.0f);
+		var movementController = GetMockMovementController(startingPosition);
 		
 		// Act
-		var newPositionY = movementController.MoveHorizontaly(-1.0f);
+		var newPosition = movementController.MoveHorizontaly(-1.0f);
 		
 		// Assert
-		Assert.Less(newPositionY, startingPositionY);
+		var expectedPosition = new Vector3(-1.0f, 0.0f, 0.0f);
+		Assert.AreEqual(newPosition, expectedPosition);
 	}
 
 	[Test]
