@@ -11,12 +11,26 @@ public class MovementControllerTests
 		// Arrange
 		var startingPositionY = 0.0f;
 		var movementController = GetMockMovementController(new Vector3(0.0f, startingPositionY, 0.0f));
-
+		
 		// Act
 		var newPositionY = movementController.MoveHorizontaly(-1.0f);
 		
 		// Assert
 		Assert.Less(newPositionY, startingPositionY);
+	}
+
+	[Test]
+	public void MoveRightTest()
+	{
+		// Arrange
+		var startingPositionY = 0.0f;
+		var movementController = GetMockMovementController(new Vector3(0.0f, startingPositionY, 0.0f));
+		
+		// Act
+		var newPositionY = movementController.MoveHorizontaly(1.0f);
+		
+		// Assert
+		Assert.Greater(newPositionY, startingPositionY);
 	}
 
 	internal IMovementController GetMockMovementController(Vector3 startingPosition)
