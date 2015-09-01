@@ -14,4 +14,4 @@ MonoBehaviour:
   runOnRecompilation: 1
   horizontalSplit: 1
   autoSaveSceneBeforeRun: 0
-  runTestOnANewScene: 1
+  runTestOnANewScene: 0

@@ -1,10 +1,29 @@
 ﻿using NUnit.Framework;
 using UnityEngine;
 using NSubstitute;
+using System.Collections.Generic;
 
 [TestFixture]
 public class MovementControllerTests
 {
+	List<GameObject> tempGameObjects;
+
+	[SetUp]
+	public void SetUp()
+	{
+		tempGameObjects = new List<GameObject>();
+	}
+
+	[TearDown]
+	public void TearDown()
+	{
+		foreach (var gameObject in tempGameObjects)
+		{
+			GameObject.DestroyImmediate(gameObject);
+		}
+		tempGameObjects.Clear();
+	}
+
 	[Test]
 	public void MoveLeftTest()
 	{
@@ -35,10 +54,19 @@ public class MovementControllerTests
 
 	internal IMovementController GetMockMovementController(Vector3 startingPosition)
 	{
-		Transform transform = new GameObject().transform;
+
+		Transform transform = CreateTempGameObject().transform;
 		var movementController = Substitute.For<MovementController>(transform);
 		movementController.StartingPosition = startingPosition;
 
 		return movementController;
+	}
+
+	internal GameObject CreateTempGameObject()
+	{
+		var gameObject = new GameObject();
+		tempGameObjects.Add(gameObject);
+
+		return gameObject;
 	}
 }
