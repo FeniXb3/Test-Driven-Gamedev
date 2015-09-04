@@ -64,6 +64,19 @@ public class MovementControllerTests
 		Assert.AreEqual(expectedPosition, newPosition);
 	}
 
+	[Test]
+	public void ResetPositionTest()
+	{
+		var startingPosition = new Vector3(10.0f, 1.0f, 0.0f);
+		var expectedPosition = new Vector3(10.0f, 1.0f, 0.0f);
+		var movementController = GetMockMovementController(startingPosition);
+		movementController.MoveHorizontaly(-5.0f);
+
+		movementController.ResetPosition();
+
+		Assert.AreEqual(expectedPosition, movementController.Position);
+	}
+
 	
 	internal IMovementController GetMockMovementController()
 	{
