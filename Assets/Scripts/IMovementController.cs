@@ -1,6 +1,8 @@
-﻿public interface IMovementController
-{
-	UnityEngine.Vector3 Position { get; }
+﻿using UnityEngine;
 
-	UnityEngine.Vector3 MoveHorizontaly(float value);
+public interface IMovementController
+{
+	Vector3 Position { get; }
+
+	Vector3 MoveHorizontaly(float value);
 }

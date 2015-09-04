@@ -1,6 +1,8 @@
-﻿public class MovementController : IMovementController
+﻿using UnityEngine;
+
+public class MovementController : IMovementController
 {
-	public UnityEngine.Vector3 Position
+	public Vector3 Position
 	{
 		get
 		{
@@ -8,20 +10,20 @@
 		}
 	}
 
-	private UnityEngine.Transform transform;
+	private Transform transform;
 
-	public MovementController(UnityEngine.Transform transform)
+	public MovementController(Transform transform)
 	{
 		this.transform = transform;
 	}
 
-	public MovementController(UnityEngine.Transform transform, UnityEngine.Vector3 startingPosition)
+	public MovementController(Transform transform, Vector3 startingPosition)
 	{
 		this.transform = transform;
 		this.transform.Translate(startingPosition);
 	}
 
-	public UnityEngine.Vector3 MoveHorizontaly(float value)
+	public Vector3 MoveHorizontaly(float value)
 	{
 		transform.Translate(value, 0.0f, 0.0f);
 
