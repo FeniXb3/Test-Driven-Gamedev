@@ -14,15 +14,15 @@ public class MovementController : IMovementController
 
 	private Transform transform;
 
-	public MovementController(Transform transform)
+	public MovementController(Transform transform) 
+		: this(transform, new Vector3(0.0f, 0.0f, 0.0f))
 	{
-		this.transform = transform;
 	}
 
 	public MovementController(Transform transform, Vector3 startingPosition)
 	{
 		this.transform = transform;
-		this.StartingPosition = startingPosition;
+        StartingPosition = startingPosition;
 		this.transform.Translate(StartingPosition);
 	}
 
