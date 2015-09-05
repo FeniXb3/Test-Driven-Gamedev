@@ -3,13 +3,13 @@ using System.Collections;
 
 public class MovementComponent : MonoBehaviour
 {
+	public Vector3 startingPosition;
 
 	IMovementController movementController;
 
 	void Start()
 	{
-		movementController = new MovementController(this.transform);
-	
+		movementController = new MovementController(this.transform, startingPosition);	
 	}
 	
 	void Update()
