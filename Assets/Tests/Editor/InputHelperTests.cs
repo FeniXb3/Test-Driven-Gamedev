@@ -27,6 +27,11 @@ public class InputHelperTests
 	[Test]
 	public void ForcingValueForGivenAxisOnlyTest()
 	{
+		var axis = "Horizontal";
+		var value = 1.0f;
+		
+		InputHelper.ForceAxis(axis, value);
+
 		Assert.AreEqual(0.0f, InputHelper.GetAxis("Vertical"));
 	}
 
