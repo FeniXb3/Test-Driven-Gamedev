@@ -12,4 +12,15 @@ public class InputHelperTests
 
         Assert.AreEqual(true, InputHelper.GetButton(buttonToForce));
     }
+
+    [Test]
+    public void ForceAxisValueTest()
+    {
+        var axis = "Horizontal";
+        var value = 1.0f;
+
+        InputHelper.ForceAxis(axis, value);
+
+        Assert.AreEqual(value, InputHelper.GetAxis(axis));
+    }
 }
