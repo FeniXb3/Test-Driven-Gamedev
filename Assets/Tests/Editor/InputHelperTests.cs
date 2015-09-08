@@ -23,4 +23,10 @@ public class InputHelperTests
 
         Assert.AreEqual(value, InputHelper.GetAxis(axis));
     }
+
+    [Test]
+    public void ForcingValueForGivenAxisOnlyTest()
+    {
+        Assert.AreEqual(0.0f, InputHelper.GetAxis("Vertical"));
+    }
 }
