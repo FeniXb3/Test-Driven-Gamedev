@@ -48,9 +48,24 @@ public class InputHelperTests
         Assert.IsTrue(InputHelper.GetButton(jumpButton));
     }
 
-	[Test]
-	[Ignore("Test added to not forget about the issue of not reseting keys after test")]
-	public void ResetingForcedKeysAndValuesTest()
+    [Test]
+    public void ForcingGivenButtonsOnlyTest()
+    {
+        var fireButton = "Fire1";
+        var jumpButton = "Jump";
+        var horizontalButton = "Horizontal";
+
+        InputHelper.ForceButton(fireButton);
+        InputHelper.ForceButton(jumpButton);
+
+        Assert.IsTrue(InputHelper.GetButton(fireButton));
+        Assert.IsTrue(InputHelper.GetButton(jumpButton));
+        Assert.IsFalse(InputHelper.GetButton(horizontalButton));
+    }
+
+    [Test]
+    [Ignore("Test added to not forget about the issue of not reseting keys after test")]
+    public void ResetingForcedKeysAndValuesTest()
 	{
 		
 	}
