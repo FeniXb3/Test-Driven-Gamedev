@@ -35,7 +35,7 @@ public class MovementControllerTests
 		
 		// Assert
 		var expectedPosition = new Vector3(-1.0f, 0.0f, 0.0f);
-		Assert.AreEqual(expectedPosition, newPosition);
+        Assert.That(newPosition, Is.EqualTo(expectedPosition));
 	}
 
 	[Test]
@@ -49,8 +49,8 @@ public class MovementControllerTests
 		
 		// Assert
 		var expectedPosition = new Vector3(1.0f, 0.0f, 0.0f);
-		Assert.AreEqual(expectedPosition, newPosition);
-	}
+        Assert.That(newPosition, Is.EqualTo(expectedPosition));
+    }
 
 	[Test]
 	public void SetPositionOnCreationTest()
@@ -61,8 +61,8 @@ public class MovementControllerTests
 		var movementController = GetMockMovementController(startingPotition);
 
 		var newPosition = movementController.Position;
-		Assert.AreEqual(expectedPosition, newPosition);
-	}
+        Assert.That(newPosition, Is.EqualTo(expectedPosition));
+    }
 
 	[Test]
 	public void ResetPositionTest()
@@ -73,14 +73,12 @@ public class MovementControllerTests
 		movementController.MoveHorizontaly(-5.0f);
 
 		movementController.ResetPosition();
-
-		Assert.AreEqual(expectedPosition, movementController.Position);
-	}
-
-	
+        
+        Assert.That(movementController.Position, Is.EqualTo(expectedPosition));
+    }
+    
 	internal IMovementController GetMockMovementController()
 	{
-		
 		Transform transform = CreateTempGameObject().transform;
 		var movementController = Substitute.For<MovementController>(transform);
 		
@@ -89,7 +87,6 @@ public class MovementControllerTests
 
 	internal IMovementController GetMockMovementController(Vector3 startingPosition)
 	{
-
 		Transform transform = CreateTempGameObject().transform;
 		var movementController = new MovementController(transform, startingPosition);
 

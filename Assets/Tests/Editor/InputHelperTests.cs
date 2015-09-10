@@ -16,7 +16,7 @@ public class InputHelperTests
 
 		InputHelper.ForceButton(buttonToForce);
 
-		Assert.AreEqual(true, InputHelper.GetButton(buttonToForce));
+		Assert.That(InputHelper.GetButton(buttonToForce), Is.True);
 	}
 
 	[Test]
@@ -26,8 +26,8 @@ public class InputHelperTests
 		var value = 1.0f;
 
 		InputHelper.ForceAxis(axis, value);
-
-		Assert.AreEqual(value, InputHelper.GetAxis(axis));
+        
+        Assert.That(InputHelper.GetAxis(axis), Is.EqualTo(value).Within(.0001f));
 	}
 
 	[Test]
@@ -38,8 +38,8 @@ public class InputHelperTests
 		
 		InputHelper.ForceAxis(axis, value);
 
-		Assert.AreEqual(0.0f, InputHelper.GetAxis("Vertical"));
-	}
+        Assert.That(InputHelper.GetAxis("Vertical"), Is.EqualTo(0.0f).Within(.0001f));
+    }
 
     [Test]
     public void ForcingMultipleButtonsTest()
@@ -49,9 +49,9 @@ public class InputHelperTests
 
         InputHelper.ForceButton(fireButton);
         InputHelper.ForceButton(jumpButton);
-
-        Assert.IsTrue(InputHelper.GetButton(fireButton));
-        Assert.IsTrue(InputHelper.GetButton(jumpButton));
+        
+        Assert.That(InputHelper.GetButton(fireButton), Is.True);
+        Assert.That(InputHelper.GetButton(jumpButton), Is.True);
     }
 
     [Test]
@@ -63,10 +63,10 @@ public class InputHelperTests
 
         InputHelper.ForceButton(fireButton);
         InputHelper.ForceButton(jumpButton);
-
-        Assert.IsTrue(InputHelper.GetButton(fireButton));
-        Assert.IsTrue(InputHelper.GetButton(jumpButton));
-        Assert.IsFalse(InputHelper.GetButton(horizontalButton));
+        
+        Assert.That(InputHelper.GetButton(fireButton), Is.True);
+        Assert.That(InputHelper.GetButton(jumpButton), Is.True);
+        Assert.That(InputHelper.GetButton(horizontalButton), Is.False);
     }
 
     [Test]
@@ -79,8 +79,8 @@ public class InputHelperTests
         InputHelper.ForceAxis(axis, value);
 
         InputHelper.ResetForced();
-
-        Assert.IsFalse(InputHelper.GetButton(fireButton));
-        Assert.AreEqual(0.0f, InputHelper.GetAxis(axis));
+        
+        Assert.That(InputHelper.GetButton(fireButton), Is.False);
+        Assert.That(InputHelper.GetAxis(axis), Is.EqualTo(0.0f).Within(.0001f));
     }
 }
