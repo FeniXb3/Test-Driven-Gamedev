@@ -75,6 +75,6 @@ public class InputHelperTests
         InputHelper.ResetForced();
 
         Assert.IsFalse(InputHelper.GetButton(fireButton));
-        Assert.AreEqual(0.0f, InputHelper.GetButton(fireButton));
+        Assert.AreEqual(0.0f, InputHelper.GetAxis(axis));
     }
 }
