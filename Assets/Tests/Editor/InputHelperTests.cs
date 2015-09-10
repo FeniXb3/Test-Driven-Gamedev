@@ -3,6 +3,12 @@
 [TestFixture]
 public class InputHelperTests
 {
+    [TearDown]
+    public void TearDown()
+    {
+        InputHelper.ResetForced();
+    }
+
 	[Test]
 	public void ForceInputButtonTest()
 	{
