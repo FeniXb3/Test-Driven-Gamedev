@@ -1,27 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 public class InputHelper
 {
-	private static string buttonToForce;
-	private static Dictionary<string, float> valuesToForceOnAxes;
-	private static readonly float defaultAxisValue;
+    private static Dictionary<string, float> valuesToForceOnAxes;
+    private static List<string> forcedButtons;
+    private static readonly float defaultAxisValue;
 
 	static InputHelper()
 	{
 		valuesToForceOnAxes = new Dictionary<string, float>();
+        forcedButtons = new List<string>();
 		defaultAxisValue = 0.0f;
 	}
 
 	public static void ForceButton(string buttonName)
 	{
-		buttonToForce = buttonName;
+        if (!forcedButtons.Contains(buttonName))
+        {
+            forcedButtons.Add(buttonName);
+        }        
 	}
 
 	public static bool GetButton(string buttonName)
 	{
-		return buttonToForce == buttonName;
-	}
+        return forcedButtons.Contains(buttonName);
+    }
 
 	public static void ForceAxis(string axis, float value)
 	{
