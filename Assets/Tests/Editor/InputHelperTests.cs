@@ -64,9 +64,17 @@ public class InputHelperTests
     }
 
     [Test]
-    [Ignore("Test added to not forget about the issue of not reseting keys after test")]
     public void ResetingForcedKeysAndValuesTest()
 	{
-		
-	}
+        var fireButton = "Fire1";
+        var axis = "Horizontal";
+        var value = 1.0f;
+        InputHelper.ForceButton(fireButton);
+        InputHelper.ForceAxis(axis, value);
+
+        InputHelper.ResetForced();
+
+        Assert.IsFalse(InputHelper.GetButton(fireButton));
+        Assert.AreEqual(0.0f, InputHelper.GetButton(fireButton));
+    }
 }
