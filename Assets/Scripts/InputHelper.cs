@@ -35,4 +35,10 @@ public class InputHelper
 	{
 		return valuesToForceOnAxes.ContainsKey(axis) ? valuesToForceOnAxes[axis] : defaultAxisValue;
 	}
+
+    public static void ResetForced()
+    {
+        forcedButtons.Clear();
+        valuesToForceOnAxes.Clear();
+    }
 }
