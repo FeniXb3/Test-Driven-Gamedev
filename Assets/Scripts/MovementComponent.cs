@@ -13,9 +13,9 @@ public class MovementComponent : MonoBehaviour
 	
 	void Update()
 	{
-		if (InputHelper.GetButton("Horizontal"))
+        if (!Mathf.Approximately(InputHelper.GetAxis("Horizontal"), 0.0f))
 		{
-			movementController.MoveHorizontaly(InputHelper.GetAxis("Horizontal"));
+            movementController.MoveHorizontaly(InputHelper.GetAxis("Horizontal"));
 		}
 	}
 }
