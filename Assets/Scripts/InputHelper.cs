@@ -1,16 +1,15 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class InputHelper
 {
     private static Dictionary<string, float> valuesToForceOnAxes;
     private static List<string> forcedButtons;
-    private static readonly float defaultAxisValue;
 
 	static InputHelper()
 	{
 		valuesToForceOnAxes = new Dictionary<string, float>();
         forcedButtons = new List<string>();
-		defaultAxisValue = 0.0f;
 	}
 
 	public static void ForceButton(string buttonName)
@@ -18,12 +17,12 @@ public class InputHelper
         if (!forcedButtons.Contains(buttonName))
         {
             forcedButtons.Add(buttonName);
-        }        
+        }
 	}
 
 	public static bool GetButton(string buttonName)
 	{
-        return forcedButtons.Contains(buttonName);
+        return forcedButtons.Contains(buttonName) || Input.GetButton(buttonName);
     }
 
 	public static void ForceAxis(string axis, float value)
@@ -33,7 +32,7 @@ public class InputHelper
 
 	public static float GetAxis(string axis)
 	{
-		return valuesToForceOnAxes.ContainsKey(axis) ? valuesToForceOnAxes[axis] : defaultAxisValue;
+		return valuesToForceOnAxes.ContainsKey(axis) ? valuesToForceOnAxes[axis] : Input.GetAxis(axis);
 	}
 
     public static void ResetForced()
