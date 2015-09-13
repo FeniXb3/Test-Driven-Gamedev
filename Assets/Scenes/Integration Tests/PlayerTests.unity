@@ -232,25 +232,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
---- !u!114 &323450284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4928c6c2b973874c8d4e6c9a69bb5b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  go: {fileID: 861886330}
-  thisPropertyPath: Transform.position.y
-  compareToType: 1
-  other: {fileID: 0}
-  otherPropertyPath: 
-  constantValueGeneric: 0
-  compareTypes: 0
-  floatingPointError: 9.9999997473787516e-05
 --- !u!1001 &594361225
 Prefab:
   m_ObjectHideFlags: 0
@@ -301,7 +282,7 @@ GameObject:
 Transform:
   m_PrefabParentObject: {fileID: 413134, guid: d10869b0e15505d408594524edfea5c6, type: 2}
   m_PrefabInternal: {fileID: 594361225}
---- !u!114 &861886336
+--- !u!114 &861886332
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -312,7 +293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bafa54482a87ac4cbd7ff1bfd1ac93a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkAfterTime: 3
+  checkAfterTime: 1
   repeatCheckTime: 0
   repeatEveryTime: 1
   checkAfterFrames: 1
@@ -320,9 +301,9 @@ MonoBehaviour:
   repeatEveryFrame: 1
   hasFailed: 0
   checkMethods: 1
-  m_ActionBase: {fileID: 1943079190}
+  m_ActionBase: {fileID: 1104982119}
   checksPerformed: 0
---- !u!114 &861886337
+--- !u!114 &861886333
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -333,7 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bafa54482a87ac4cbd7ff1bfd1ac93a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkAfterTime: 3
+  checkAfterTime: 1
   repeatCheckTime: 0
   repeatEveryTime: 1
   checkAfterFrames: 1
@@ -341,8 +322,27 @@ MonoBehaviour:
   repeatEveryFrame: 1
   hasFailed: 0
   checkMethods: 1
-  m_ActionBase: {fileID: 323450284}
+  m_ActionBase: {fileID: 1627545865}
   checksPerformed: 0
+--- !u!114 &1104982119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4928c6c2b973874c8d4e6c9a69bb5b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  go: {fileID: 861886330}
+  thisPropertyPath: Transform.position.y
+  compareToType: 1
+  other: {fileID: 0}
+  otherPropertyPath: 
+  constantValueGeneric: 0
+  compareTypes: 0
+  floatingPointError: 9.9999997473787516e-05
 --- !u!1 &1445325928
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,6 +352,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1445325930}
   - 114: {fileID: 1445325929}
+  - 114: {fileID: 1445325931}
   m_Layer: 0
   m_Name: Moving left
   m_TagString: Untagged
@@ -393,7 +394,20 @@ Transform:
   - {fileID: 861886331}
   m_Father: {fileID: 0}
   m_RootOrder: 2
---- !u!114 &1943079190
+--- !u!114 &1445325931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1445325928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8b9adaa88bb3ac438ecd94797b6cbfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonToForce: Horizontal
+  axisValueToForce: -.00999999978
+--- !u!114 &1627545865
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -409,8 +423,8 @@ MonoBehaviour:
   compareToType: 1
   other: {fileID: 0}
   otherPropertyPath: 
-  constantValueGeneric: 1
-  compareTypes: 0
+  constantValueGeneric: 0
+  compareTypes: 3
   floatingPointError: 9.9999997473787516e-05
 --- !u!1 &1974274470
 GameObject:
